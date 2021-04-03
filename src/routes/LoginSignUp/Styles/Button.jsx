@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 const Button = styled.button`
-  background: #3ea2f9;
+  background: #a872ff;
   border: none;
   width: 100%;
   margin-top: ${(props) => (props.addMarginTop ? '16px' : '0')};

@@ -6,6 +6,7 @@ import {
   Container,
   NavLinksStyle,
   IconStyle,
+  LogOutButton,
 } from './Styles/Main.style.jsx'
 // import custom hook
 import useSetLinkActive from './CustomHook/useSetLinkActive.jsx'
@@ -15,7 +16,7 @@ import AccountSection from './AccountSection.jsx'
 const MainSidebar = ({ logoutHandler }) => {
   const { setActiveHandler, linkActive } = useSetLinkActive()
   return (
-    <Sidebar>
+    <Sidebar className='col-xl-3 col-md-4 col-sm-5'>
       <Navbrand />
       <Container>
         <SmallBoldText>Menu</SmallBoldText>
@@ -53,9 +54,9 @@ const MainSidebar = ({ logoutHandler }) => {
         </NavLinksStyle>
       </NavlinksWrapper>
       <AccountSection />
-      <button className='w-100' onClick={logoutHandler}>
+      <LogOutButton className='w-100' onClick={logoutHandler}>
         Logout
-      </button>
+      </LogOutButton>
     </Sidebar>
   )
 }

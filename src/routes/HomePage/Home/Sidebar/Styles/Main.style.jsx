@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 export const Sidebar = styled.div`
   background: white;
-  width: 25%;
   height: 100vh;
 `
 export const Container = styled.div`
@@ -53,4 +52,18 @@ export const CircleDiv = styled.div`
   height: 40px;
   width: 40px;
   background: tomato;
+`
+export const LogOutButton = styled.button`
+  margin-top: 1rem;
+  background: #a872ff;
+  padding: 3px 0;
+  color: white;
+  border: 2px solid #a872ff;
+  border-radius: 10px;
+  transition-duration: 0.3s;
+  &:hover {
+    background: none;
+    color: #a872ff;
+    transition-duration: 0.3s;
+  }
 `
