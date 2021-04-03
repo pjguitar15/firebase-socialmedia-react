@@ -5,7 +5,7 @@ const Button = styled.button`
   border: none;
   width: 100%;
   margin-top: ${(props) => (props.addMarginTop ? '16px' : '0')};
-  padding: 10px;
+  padding: 8px;
   color: #ffffff;
   text-align: center;
   font-family: Open Sans;

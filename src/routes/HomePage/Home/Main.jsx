@@ -5,6 +5,9 @@ import { useAuth } from '../../../Context/AuthProvider.jsx'
 import { useHistory } from 'react-router-dom'
 // Alert
 import { Alert } from 'react-bootstrap'
+// Components
+import MainSidebar from './Sidebar/MainSidebar.jsx'
+import CenterPage from './Center/CenterPage.jsx'
 const Main = () => {
   const [error, setError] = useState('')
   // initialize history
@@ -20,10 +23,10 @@ const Main = () => {
     }
   }
   return (
-    <div>
+    <div className='d-flex justify-content-between'>
       {error && <Alert variant='danger'>{error}</Alert>}
-      <h1>You are logged in because you were authenticated!</h1>
-      <button onClick={logoutHandler}>Logout</button>
+      <MainSidebar logoutHandler={logoutHandler} />
+      <CenterPage />
     </div>
   )
 }
