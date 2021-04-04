@@ -7,7 +7,7 @@ import {
 } from '../../../../../Context/GlobalState.jsx'
 
 const useSetLinkActive = () => {
-  // import useContext
+  // declare useContext from Global State Variables
   const [isHome, setIsHome] = useContext(HomeActive)
   const [isMessages, setIsMessages] = useContext(MessagesActive)
   const [isProfile, setIsProfile] = useContext(ProfileActive)

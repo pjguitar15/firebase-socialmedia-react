@@ -3,6 +3,8 @@ import React from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 // Import Bootstrap for responsiveness
 import 'bootstrap/dist/css/bootstrap.min.css'
+// import Antd CSS
+import 'antd/dist/antd.css'
 // Components
 import LoginPage from './routes/LoginSignUp/Login/LoginForm.jsx'
 import SignUpPage from './routes/LoginSignUp/SignUp/SignUpForm.jsx'

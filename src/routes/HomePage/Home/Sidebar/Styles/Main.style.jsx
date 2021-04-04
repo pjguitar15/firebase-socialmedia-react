@@ -2,6 +2,8 @@ import styled from 'styled-components'
 export const Sidebar = styled.div`
   background: white;
   height: 100vh;
+  position: fixed;
+  z-index: 1;
 `
 export const Container = styled.div`
   padding: 0 25px;

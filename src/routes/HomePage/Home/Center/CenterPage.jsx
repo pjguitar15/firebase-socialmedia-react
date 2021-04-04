@@ -16,8 +16,8 @@ const CenterPage = () => {
   return (
     <CenterWrapper style={{ background: '#F7FAFF' }} className='w-100'>
       {isHome && <Feeds />}
-      {isMessages && <h1>Messages</h1>}
-      {isProfile && <h1>Profile</h1>}
+      {isMessages && <h1 className='text-center'>Messages</h1>}
+      {isProfile && <h1 className='text-center'>Profile</h1>}
     </CenterWrapper>
   )
 }
