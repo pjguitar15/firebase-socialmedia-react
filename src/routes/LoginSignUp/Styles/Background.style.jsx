@@ -10,7 +10,7 @@ const MainWrapper = styled.div`
 const ArtColumn = styled.div`
   height: 100%;
   width: 35%;
-  background: #cae3f7;
+  background: #e2d0ff;
   display: flex;
   padding-top: 10rem;
   align-items: center;

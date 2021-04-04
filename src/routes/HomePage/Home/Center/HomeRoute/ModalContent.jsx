@@ -1,6 +1,58 @@
-import React from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import { Modal } from 'antd'
+// import from LoginSignUp styled component
+import {
+  TextInput,
+  FormGroup,
+} from '../../../../LoginSignUp/Styles/InputField.style.jsx'
+// import Alert from react bootstrap
+import { Alert, ProgressBar } from 'react-bootstrap'
+// import firebase storage from global context
+import {
+  UploadProgress,
+  ProgressError,
+  FileUrl,
+  UploadToStorage,
+} from '../../../../../Context/GlobalState.jsx'
+
 const ModalContent = ({ visible, setVisible }) => {
+  const [file, setFile] = useState({})
+  const [uploadError, setUploadError] = useState('')
+  // Firebase useContext
+  // const [progress, setProgress] = useContext(UploadProgress)
+  // const [error, setError] = useContext(ProgressError)
+  // const [url, setUrl] = useContext(FileUrl)
+  // const uploadToStorage = useContext(UploadToStorage)
+  // allowed types
+  const types = ['image/png', 'image/jpeg']
+
+  // onClick
+  const postHandler = () => {
+    alert('It doesnt work yet!')
+  }
+
+  // onChange
+  const storeFileData = (e) => {
+    const selected = e.target.files[0]
+
+    if (selected && types.includes(selected.type)) {
+      setUploadError('')
+      setFile(selected)
+    } else {
+      setUploadError('Only image files are supported!')
+      setFile({})
+    }
+  }
+
+  // useEffect(() => {
+  //   // if loading done, set state back to null
+  //   if (url) {
+  //     setFile({})
+  //   }
+  // }, [url])
+  // useEffect(() => {
+  //   uploadToStorage(file)
+  // }, [])
   return (
     <>
       {/* Modal */}
@@ -8,13 +60,27 @@ const ModalContent = ({ visible, setVisible }) => {
         title='Add a post!'
         centered
         visible={visible}
-        onOk={() => setVisible(false)}
+        onOk={postHandler}
         onCancel={() => setVisible(false)}
         width={1000}
+        okText='Post'
       >
-        <p>some contents...</p>
-        <p>some contents...</p>
-        <p>some contents...</p>
+        <div className='col-8 mx-auto'>
+          {uploadError && <Alert variant='danger'>{uploadError}</Alert>}
+          <FormGroup>
+            <h6>Post Title</h6>
+            <TextInput placeholder='Enter title' />
+          </FormGroup>
+          <FormGroup>
+            <h6>Post Description</h6>
+            <TextInput placeholder='Enter description' />
+          </FormGroup>
+          <FormGroup>
+            <h6>Upload a photo</h6>
+            <input onChange={storeFileData} type='file' />
+          </FormGroup>
+          {/* {file && <ProgressBar animated now={progress} />} */}
+        </div>
       </Modal>
     </>
   )
