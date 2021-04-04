@@ -9,11 +9,13 @@ import FeedItems from './FeedItems.jsx'
 import { Button } from 'react-bootstrap'
 // import Modal Content
 import ModalContent from './ModalContent.jsx'
+// import Center Wrapper
+import { CenterWrapper } from '../Styles/MainStyles.jsx'
 const Feeds = () => {
   const { feedLinkActive, setFeedActiveHandler } = useSetLinkActive()
   const [visible, setVisible] = useState(false)
   return (
-    <div className='col-xl-10 col-md-8 col-sm-7 ml-auto'>
+    <CenterWrapper className='col-xl-10 col-md-8 col-sm-7 ml-auto'>
       <div className='d-flex justify-content-between'>
         <SmallBoldText>Feeds</SmallBoldText>
 
@@ -62,7 +64,7 @@ const Feeds = () => {
       </Button>
       <ModalContent visible={visible} setVisible={setVisible} />
       <FeedItems />
-    </div>
+    </CenterWrapper>
   )
 }
 
