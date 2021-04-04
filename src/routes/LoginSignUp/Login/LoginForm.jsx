@@ -62,7 +62,7 @@ const LoginForm = () => {
       <FormColumn>
         <FormMain
           onSubmit={submitHandler}
-          className='col-xl-7 col-md-11 col-xs-12'
+          className='col-xl-6 col-md-11 col-xs-12'
         >
           <HeaderText>Log In</HeaderText>
           {error && <Alert variant='danger'>{error}</Alert>}

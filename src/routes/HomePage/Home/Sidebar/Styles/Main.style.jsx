@@ -15,7 +15,7 @@ export const Logo = styled.h2`
   padding: 4rem 0;
 `
 export const SmallBoldText = styled.h6`
-  color: #152b65;
+  color: #37497b;
   font-weight: 700;
 `
 export const NavlinksWrapper = styled.div`
@@ -49,21 +49,22 @@ export const SmallMutedText = styled.div`
 `
 export const CircleDiv = styled.div`
   border-radius: 50%;
-  height: 40px;
-  width: 40px;
+  height: 35px;
+  width: 35px;
   background: tomato;
 `
 export const LogOutButton = styled.button`
   margin-top: 1rem;
   background: #a872ff;
-  padding: 3px 0;
+  padding: 4px 0;
   color: white;
-  border: 2px solid #a872ff;
+  border: 1px solid #a872ff;
   border-radius: 10px;
   transition-duration: 0.3s;
+  font-size: 14px;
   &:hover {
-    background: none;
-    color: #a872ff;
+    background: #c29bff;
+
     transition-duration: 0.3s;
   }
 `

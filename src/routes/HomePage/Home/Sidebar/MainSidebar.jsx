@@ -16,7 +16,7 @@ import AccountSection from './AccountSection.jsx'
 const MainSidebar = ({ logoutHandler }) => {
   const { setActiveHandler, linkActive } = useSetLinkActive()
   return (
-    <Sidebar className='col-xl-3 col-md-4 col-sm-5'>
+    <Sidebar className='col-xl-2 col-md-4 col-sm-5'>
       <Navbrand />
       <Container>
         <SmallBoldText>Menu</SmallBoldText>

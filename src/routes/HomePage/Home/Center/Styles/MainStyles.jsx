@@ -10,3 +10,13 @@ export const FeedFilterStyle = styled.h6`
   cursor: pointer;
   font-weight: ${({ active }) => active && '800'};
 `
+export const ImageStyle = styled.img`
+  width: 100%;
+  border: solid 3px #f7f7f7;
+  border-radius: 10px;
+`
+export const IconsStyle = styled.i`
+  font-size: 24px;
+  margin: 3px 12px;
+  color: #a4b6e1;
+`
