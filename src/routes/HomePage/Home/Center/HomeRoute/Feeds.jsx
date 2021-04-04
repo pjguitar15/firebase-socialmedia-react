@@ -47,6 +47,7 @@ const Feeds = () => {
           </FeedFilterStyle>
         </div>
       </div>
+
       <FeedItems />
     </div>
   )

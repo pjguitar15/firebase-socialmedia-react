@@ -16,7 +16,7 @@ export const ImageStyle = styled.img`
   border-radius: 10px;
 `
 export const IconsStyle = styled.i`
-  font-size: 24px;
+  font-size: 20px;
   margin: 3px 12px;
   color: #a4b6e1;
 `

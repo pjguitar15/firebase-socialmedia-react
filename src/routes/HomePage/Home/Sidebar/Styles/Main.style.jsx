@@ -17,6 +17,7 @@ export const Logo = styled.h2`
 export const SmallBoldText = styled.h6`
   color: #37497b;
   font-weight: 700;
+  font-size: 13px;
 `
 export const NavlinksWrapper = styled.div`
   padding: 1rem 0;
@@ -49,8 +50,8 @@ export const SmallMutedText = styled.div`
 `
 export const CircleDiv = styled.div`
   border-radius: 50%;
-  height: 35px;
-  width: 35px;
+  height: 30px;
+  width: 30px;
   background: tomato;
 `
 export const LogOutButton = styled.button`

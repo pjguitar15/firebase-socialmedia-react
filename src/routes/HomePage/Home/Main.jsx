@@ -27,7 +27,7 @@ const Main = () => {
       {error && <Alert variant='danger'>{error}</Alert>}
       <MainSidebar logoutHandler={logoutHandler} />
       <CenterPage />
-      <MainSidebar logoutHandler={logoutHandler} />
+      {/* <MainSidebar logoutHandler={logoutHandler} /> */}
     </div>
   )
 }
