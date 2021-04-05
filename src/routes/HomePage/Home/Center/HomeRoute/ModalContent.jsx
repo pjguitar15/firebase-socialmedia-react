@@ -67,7 +67,6 @@ const ModalContent = ({ visible, setVisible }) => {
       setLoading(false)
       setVisible(false)
       setUploadError('')
-      alert('Post uploaded successfully!')
       setPostTitle('')
       setPostDescription('')
     }

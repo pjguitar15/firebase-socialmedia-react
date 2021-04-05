@@ -24,7 +24,7 @@ const FirebaseContext = ({ children }) => {
   const uploadToStorage = (file) => {
     // references
     const storageRef = projectStorage.ref(file.name)
-    const collectionRef = projectFirestore.collection('images')
+    const collectionRef = projectFirestore.collection('posts')
 
     storageRef.put(file).on(
       'state_changed',
@@ -49,7 +49,7 @@ const FirebaseContext = ({ children }) => {
         const createdAt = timestamp()
 
         // adds image url to firestore collection
-        collectionRef.add({ url, createdAt })
+        collectionRef.add({ name: 'Philcob', url, createdAt })
         setUrl(url)
       }
     )
