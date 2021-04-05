@@ -22,7 +22,9 @@ const FeedItems = () => {
             <div className='mt-3 d-flex justify-content-between'>
               <div className='d-flex align-items-center'>
                 <CircleDiv></CircleDiv>
-                <SmallBoldText className='ml-2 mt-2'>{item.name}</SmallBoldText>
+                <SmallBoldText className='ml-2 mt-2'>
+                  {item.email}
+                </SmallBoldText>
               </div>
               {/* like comment share icons */}
               <div className='d-flex'>

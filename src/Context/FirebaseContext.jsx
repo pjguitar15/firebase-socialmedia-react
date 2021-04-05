@@ -19,7 +19,7 @@ const FirebaseContext = ({ children }) => {
   const [url, setUrl] = useState('')
 
   // useAuth
-  // const { currentUser } = useAuth()
+  const { currentUser } = useAuth()
 
   const uploadToStorage = (file) => {
     // references
@@ -32,8 +32,6 @@ const FirebaseContext = ({ children }) => {
         // get percentage with this formula
         let percentage = (snap.bytesTransferred / snap.totalBytes) * 100
 
-        console.log(percentage)
-        console.log(file)
         setProgress(percentage)
       },
       (err) => {
@@ -43,13 +41,12 @@ const FirebaseContext = ({ children }) => {
         // this function fires when upload is complete
         const url = await storageRef.getDownloadURL()
         // url is created successfully here
-        console.log(url)
 
         // call timestamp function and assign to var
         const createdAt = timestamp()
 
         // adds image url to firestore collection
-        collectionRef.add({ name: 'Philcob', url, createdAt })
+        collectionRef.add({ email: currentUser.email, url, createdAt })
         setUrl(url)
       }
     )

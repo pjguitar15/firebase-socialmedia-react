@@ -19,8 +19,8 @@ import FirebaseProvider from './Context/FirebaseContext.jsx'
 const App = () => {
   return (
     <GlobalStateProvider>
-      <FirebaseProvider>
-        <AuthProvider>
+      <AuthProvider>
+        <FirebaseProvider>
           <Router>
             <Switch>
               <PrivateRoute path='/' exact component={HomePage} />
@@ -28,8 +28,8 @@ const App = () => {
               <Route path='/signup' component={SignUpPage} />
             </Switch>
           </Router>
-        </AuthProvider>
-      </FirebaseProvider>
+        </FirebaseProvider>
+      </AuthProvider>
     </GlobalStateProvider>
   )
 }
