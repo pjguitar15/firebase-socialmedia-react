@@ -44,7 +44,7 @@ const ModalContent = ({ visible, setVisible }) => {
     } else {
       setError('')
       setLoading(true)
-      uploadToStorage(file)
+      uploadToStorage(file, postTitle, postDescription)
     }
   }
 

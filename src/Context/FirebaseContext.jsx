@@ -21,7 +21,7 @@ const FirebaseContext = ({ children }) => {
   // useAuth
   const { currentUser } = useAuth()
 
-  const uploadToStorage = (file) => {
+  const uploadToStorage = (file, title, description) => {
     // references
     const storageRef = projectStorage.ref(file.name)
     const collectionRef = projectFirestore.collection('posts')
@@ -46,7 +46,15 @@ const FirebaseContext = ({ children }) => {
         const createdAt = timestamp()
 
         // adds image url to firestore collection
-        collectionRef.add({ email: currentUser.email, url, createdAt })
+        collectionRef.add({
+          likes: 0,
+          comments: [],
+          title,
+          description,
+          email: currentUser.email,
+          url,
+          createdAt,
+        })
         setUrl(url)
       }
     )

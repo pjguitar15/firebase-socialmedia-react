@@ -19,19 +19,25 @@ const FeedItems = () => {
           <Col key={index} xl='4' className='p-3'>
             <ImageStyle src={item.url} alt='cooked food' />
             {/* User like comment share */}
-            <div className='mt-3 d-flex justify-content-between'>
+            <h6 className='m-0 p-2'>{item.title}</h6>
+            <p className='text-secondary m-0 text-justify px-2'>
+              {item.description}
+            </p>
+            <div className='d-flex justify-content-between mt-2 px-2'>
               <div className='d-flex align-items-center'>
                 <CircleDiv></CircleDiv>
-                <SmallBoldText className='ml-2 mt-2'>
-                  {item.email}
-                </SmallBoldText>
+                <SmallBoldText className='ml-2'>{item.email}</SmallBoldText>
               </div>
               {/* like comment share icons */}
               <div className='d-flex'>
                 <IconsStyle className='fas fa-heart text-danger'></IconsStyle>
-                <SmallBoldText className='text-danger mt-1'>2</SmallBoldText>
+                <SmallBoldText className='text-danger mt-1'>
+                  {item.likes}
+                </SmallBoldText>
                 <IconsStyle className='fas fa-comment-dots'></IconsStyle>
-                <SmallBoldText className='mt-1'>3</SmallBoldText>
+                <SmallBoldText className='mt-1'>
+                  {item.comments.length}
+                </SmallBoldText>
               </div>
             </div>
           </Col>
