@@ -88,6 +88,10 @@ const ModalContent = ({ visible, setVisible }) => {
           {uploadError && <Alert variant='danger'>{uploadError}</Alert>}
           {error && <Alert variant='danger'>{error}</Alert>}
           <FormGroup>
+            <FormGroup>
+              <h6>Upload a photo</h6>
+              <input onChange={storeFileData} type='file' />
+            </FormGroup>
             <h6>Post Title</h6>
             <TextInput
               value={postTitle}
@@ -102,10 +106,6 @@ const ModalContent = ({ visible, setVisible }) => {
               onChange={(e) => setPostDescription(e.target.value)}
               placeholder='Enter description'
             />
-          </FormGroup>
-          <FormGroup>
-            <h6>Upload a photo</h6>
-            <input onChange={storeFileData} type='file' />
           </FormGroup>
           {loading && <ProgressBar animated now={progress} />}
         </div>

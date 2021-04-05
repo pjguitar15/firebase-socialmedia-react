@@ -3,8 +3,7 @@ import { Row, Col } from 'react-bootstrap'
 // import styled
 import { CircleDiv, SmallBoldText } from '../../Sidebar/Styles/Main.style.jsx'
 import { ImageStyle, IconsStyle } from '../Styles/MainStyles.jsx'
-// Mock Data
-import data from './MockData'
+
 // import useFirestore hook
 import useFirestore from '../../../../../FirebaseHooks/useFirestore'
 

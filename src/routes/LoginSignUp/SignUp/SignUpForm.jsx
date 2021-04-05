@@ -63,7 +63,6 @@ const SignUpForm = () => {
       signup(emailRef.current.value, passwordRef.current.value)
       history.push('/login')
     }
-    console.log('it works')
   }
 
   return (
