@@ -3,7 +3,7 @@ import { Logo } from './Styles/Main.style.jsx'
 const NavBrand = () => {
   return (
     <div>
-      <Logo>Cofeed</Logo>
+      <Logo>Lifestyle</Logo>
     </div>
   )
 }
