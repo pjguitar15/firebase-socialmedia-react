@@ -15,18 +15,21 @@ import PrivateRoute from './routes/ProtectedRoute/ProtectedRoute.jsx'
 import { AuthProvider } from './Context/AuthProvider.jsx'
 // Global state
 import GlobalStateProvider from './Context/GlobalState.jsx'
+import FirebaseProvider from './Context/FirebaseContext.jsx'
 const App = () => {
   return (
     <GlobalStateProvider>
-      <AuthProvider>
-        <Router>
-          <Switch>
-            <PrivateRoute path='/' exact component={HomePage} />
-            <Route path='/login' component={LoginPage} />
-            <Route path='/signup' component={SignUpPage} />
-          </Switch>
-        </Router>
-      </AuthProvider>
+      <FirebaseProvider>
+        <AuthProvider>
+          <Router>
+            <Switch>
+              <PrivateRoute path='/' exact component={HomePage} />
+              <Route path='/login' component={LoginPage} />
+              <Route path='/signup' component={SignUpPage} />
+            </Switch>
+          </Router>
+        </AuthProvider>
+      </FirebaseProvider>
     </GlobalStateProvider>
   )
 }

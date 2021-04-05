@@ -13,22 +13,39 @@ import {
   ProgressError,
   FileUrl,
   UploadToStorage,
-} from '../../../../../Context/GlobalState.jsx'
+} from '../../../../../Context/FirebaseContext.jsx'
 
 const ModalContent = ({ visible, setVisible }) => {
-  const [file, setFile] = useState({})
-  const [uploadError, setUploadError] = useState('')
+  const [file, setFile] = useState(null)
+  // form validation error
+  const [error, setError] = useState('')
+  const [loading, setLoading] = useState(false)
+  // Modal Form
+  const [postTitle, setPostTitle] = useState('')
+  const [postDescription, setPostDescription] = useState('')
+
   // Firebase useContext
-  // const [progress, setProgress] = useContext(UploadProgress)
-  // const [error, setError] = useContext(ProgressError)
-  // const [url, setUrl] = useContext(FileUrl)
-  // const uploadToStorage = useContext(UploadToStorage)
+  const [progress, setProgress] = useContext(UploadProgress)
+  const [uploadError, setUploadError] = useContext(ProgressError)
+  const [url, setUrl] = useContext(FileUrl)
+  const uploadToStorage = useContext(UploadToStorage)
   // allowed types
   const types = ['image/png', 'image/jpeg']
 
   // onClick
   const postHandler = () => {
-    alert('It doesnt work yet!')
+    // validate post
+    if (!postTitle) {
+      setError('Please enter title')
+    } else if (!postDescription) {
+      setError('Please enter description')
+    } else if (!file) {
+      setError('Photo is required')
+    } else {
+      setError('')
+      setLoading(true)
+      uploadToStorage(file)
+    }
   }
 
   // onChange
@@ -40,19 +57,22 @@ const ModalContent = ({ visible, setVisible }) => {
       setFile(selected)
     } else {
       setUploadError('Only image files are supported!')
-      setFile({})
+      setFile(null)
     }
   }
 
-  // useEffect(() => {
-  //   // if loading done, set state back to null
-  //   if (url) {
-  //     setFile({})
-  //   }
-  // }, [url])
-  // useEffect(() => {
-  //   uploadToStorage(file)
-  // }, [])
+  useEffect(() => {
+    // if loading done, set state back to null
+    if (url) {
+      setLoading(false)
+      setVisible(false)
+      setUploadError('')
+      alert('Post uploaded successfully!')
+      setPostTitle('')
+      setPostDescription('')
+    }
+  }, [url])
+
   return (
     <>
       {/* Modal */}
@@ -67,19 +87,28 @@ const ModalContent = ({ visible, setVisible }) => {
       >
         <div className='col-8 mx-auto'>
           {uploadError && <Alert variant='danger'>{uploadError}</Alert>}
+          {error && <Alert variant='danger'>{error}</Alert>}
           <FormGroup>
             <h6>Post Title</h6>
-            <TextInput placeholder='Enter title' />
+            <TextInput
+              value={postTitle}
+              onChange={(e) => setPostTitle(e.target.value)}
+              placeholder='Enter title'
+            />
           </FormGroup>
           <FormGroup>
             <h6>Post Description</h6>
-            <TextInput placeholder='Enter description' />
+            <TextInput
+              value={postDescription}
+              onChange={(e) => setPostDescription(e.target.value)}
+              placeholder='Enter description'
+            />
           </FormGroup>
           <FormGroup>
             <h6>Upload a photo</h6>
             <input onChange={storeFileData} type='file' />
           </FormGroup>
-          {/* {file && <ProgressBar animated now={progress} />} */}
+          {loading && <ProgressBar animated now={progress} />}
         </div>
       </Modal>
     </>
