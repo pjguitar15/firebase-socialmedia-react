@@ -88,6 +88,9 @@ const ProfileRoute = () => {
               <Form.Label>Country</Form.Label>
               <Form.Control placeholder='Enter country' />
             </Form.Group>
+            <Button variant='primary w-100' size='sm'>
+              Update Profile
+            </Button>
           </Form>
         </div>
       </ProfileInfoWrapper>

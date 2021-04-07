@@ -25,3 +25,4 @@ export const IconsStyle = styled.i`
     color: ${(props) => props.heart && '#ff5858'};
   }
 `
+

@@ -8,6 +8,8 @@ import { ImageStyle, IconsStyle } from '../Styles/MainStyles.jsx'
 import useFirestore from '../../../../../FirebaseHooks/useFirestore'
 // import from Context
 import { LikePost } from '../../../../../Context/FirebaseContext.jsx'
+// import react-bootstrap
+import { Spinner } from 'react-bootstrap'
 const FeedItems = () => {
   const { docs, loading } = useFirestore('posts')
   const likePost = useContext(LikePost)
@@ -15,7 +17,20 @@ const FeedItems = () => {
   return (
     <div>
       <Row>
-        {loading && <h1 className='text-center display-1'>Loading...</h1>}
+        {loading && (
+          <Spinner
+            style={{
+              marginTop: '4rem',
+              height: '200px',
+              width: '200px',
+              margin: '4rem auto',
+            }}
+            animation='border'
+            role='status'
+          >
+            <span className='sr-only'>Loading...</span>
+          </Spinner>
+        )}
         {docs.map((item, index) => (
           <Col key={index} xl='4' className='p-3'>
             <ImageStyle src={item.url} alt='cooked food' />
