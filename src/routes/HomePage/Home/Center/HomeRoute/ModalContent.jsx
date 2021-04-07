@@ -25,9 +25,9 @@ const ModalContent = ({ visible, setVisible }) => {
   const [postDescription, setPostDescription] = useState('')
 
   // Firebase useContext
-  const [progress, setProgress] = useContext(UploadProgress)
+  const [progress] = useContext(UploadProgress)
   const [uploadError, setUploadError] = useContext(ProgressError)
-  const [url, setUrl] = useContext(FileUrl)
+  const [url] = useContext(FileUrl)
   const uploadToStorage = useContext(UploadToStorage)
   // allowed types
   const types = ['image/png', 'image/jpeg']

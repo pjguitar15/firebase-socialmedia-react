@@ -18,5 +18,10 @@ export const ImageStyle = styled.img`
 export const IconsStyle = styled.i`
   font-size: 20px;
   margin: 3px 12px;
-  color: #a4b6e1;
+  color: ${(props) => (props.heart ? 'red' : 'grey')};
+  cursor: pointer;
+  transition: color 100ms ease-in-out;
+  &:hover {
+    color: ${(props) => props.heart && '#ff5858'};
+  }
 `

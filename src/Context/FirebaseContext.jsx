@@ -10,6 +10,7 @@ export const UploadProgress = React.createContext()
 export const ProgressError = React.createContext()
 export const FileUrl = React.createContext()
 export const UploadToStorage = React.createContext()
+export const LikePost = React.createContext()
 // FireStorage end
 
 const FirebaseContext = ({ children }) => {
@@ -21,11 +22,10 @@ const FirebaseContext = ({ children }) => {
   // useAuth
   const { currentUser } = useAuth()
 
+  const collectionRef = projectFirestore.collection('posts')
   const uploadToStorage = (file, title, description) => {
     // references
     const storageRef = projectStorage.ref(file.name)
-    const collectionRef = projectFirestore.collection('posts')
-
     storageRef.put(file).on(
       'state_changed',
       (snap) => {
@@ -60,12 +60,21 @@ const FirebaseContext = ({ children }) => {
     )
   }
 
+  const likePost = (item) => {
+    collectionRef
+      .doc(item.id)
+      .update({ ...item, likes: item.likes + 1 })
+      .catch((err) => {
+        console.error(err)
+      })
+  }
+
   return (
     <UploadProgress.Provider value={[progress, setProgress]}>
       <ProgressError.Provider value={[uploadError, setUploadError]}>
         <FileUrl.Provider value={[url, setUrl]}>
           <UploadToStorage.Provider value={uploadToStorage}>
-            {children}
+            <LikePost.Provider value={likePost}>{children}</LikePost.Provider>
           </UploadToStorage.Provider>
         </FileUrl.Provider>
       </ProgressError.Provider>

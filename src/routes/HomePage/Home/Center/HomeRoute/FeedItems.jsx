@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Row, Col } from 'react-bootstrap'
 // import styled
 import { CircleDiv, SmallBoldText } from '../../Sidebar/Styles/Main.style.jsx'
@@ -6,9 +6,11 @@ import { ImageStyle, IconsStyle } from '../Styles/MainStyles.jsx'
 
 // import useFirestore hook
 import useFirestore from '../../../../../FirebaseHooks/useFirestore'
-
+// import from Context
+import { LikePost } from '../../../../../Context/FirebaseContext.jsx'
 const FeedItems = () => {
   const { docs, loading } = useFirestore('posts')
+  const likePost = useContext(LikePost)
 
   return (
     <div>
@@ -29,8 +31,12 @@ const FeedItems = () => {
               </div>
               {/* like comment share icons */}
               <div className='d-flex'>
-                <IconsStyle className='fas fa-heart text-danger'></IconsStyle>
-                <SmallBoldText className='text-danger mt-1'>
+                <IconsStyle
+                  heart
+                  onClick={() => likePost(item)}
+                  className='fas fa-heart '
+                ></IconsStyle>
+                <SmallBoldText className='mt-1 text-danger'>
                   {item.likes}
                 </SmallBoldText>
                 <IconsStyle className='fas fa-comment-dots'></IconsStyle>
